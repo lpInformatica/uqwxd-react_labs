@@ -4,7 +4,6 @@ import "./App.css";
 const App = () => {
   const [todos, setTodos] = React.useState([]);
   const [todo, setTodo] = React.useState("");
-
   const [todoEditing, setTodoEditing] = React.useState(null);
   const [editingText, setEditingText] = React.useState("");
 
@@ -23,7 +22,6 @@ const App = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-
     const newTodo = {
       id: new Date().getTime(),
       text: todo.trim(),
@@ -32,13 +30,12 @@ const App = () => {
     if (newTodo.text.length > 0 ) {
         setTodos([...todos].concat(newTodo));
         setTodo("");
-    
-    } else {
-        
+    } else {        
         alert("Enter Valid Task");
         setTodo(""); 
     }
   }
+  
   function deleteTodo(id) {
     let updatedTodos = [...todos].filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
